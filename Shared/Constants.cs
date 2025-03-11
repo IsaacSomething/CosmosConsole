@@ -1,4 +1,4 @@
-﻿namespace CosmosConsole
+﻿namespace CosmosConsole.Shared
 {
     public static class Constants
     {
@@ -7,5 +7,6 @@
         public static readonly string DatabaseName = "CosmosConsole";
         public static readonly string ContainerName = "CosmosConsoleContainer";
         public static readonly string PartitionKey = "/partitionKey";
+        public static readonly string[] MenuItems = ["Create (Container)", "Create (Document)", "Delete (Container)", "Delete (Document)"];
     }
 }
