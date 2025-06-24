@@ -1,9 +1,17 @@
 # Cosmos Console
 
-A simple application that interacts with the Azure Cosmos SDK
+Capstone project for the [Azure DP-420 certification](https://learn.microsoft.com/en-us/training/courses/dp-420t00)
+
+
+##### Emulator
+[download emulator](https://learn.microsoft.com/en-us/azure/cosmos-db/local-emulator?tabs=windows)]
+
 
 ##### Libraries
 [spectreconsole](https://spectreconsole.net/)
+
+#### Migrate data
+=Todo
 
 #### Fake data
 
@@ -14,6 +22,8 @@ A simple application that interacts with the Azure Cosmos SDK
 
   >: cosmicworks --endpoint <my endpoint> --key <my key> --datasets product
 ```
+
+####
 
 
 #### TODO

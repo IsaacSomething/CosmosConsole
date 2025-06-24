@@ -17,24 +17,25 @@ class Program
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         await GetStartedDemoAsync();
         await PromptContainerCreate();
-        // await CreateDocument();
+        //await CreateDocument();
         WaitToExit();
     }
 
     public static async Task GetStartedDemoAsync()
     {
         AnsiConsole.Markup(":ringed_planet: \n");
-        AnsiConsole.Markup("[bold white on orange3]Cosmos Console application[/] starting... \n");
+        AnsiConsole.Markup("[bold black on orange3]Cosmos Console application[/] starting... \n");
 
         try
         {
-            AnsiConsole.Markup("[bold white on orange3]Initializing client[/]...\n");
+            AnsiConsole.Markup("[bold black on orange3]Initializing client[/]...\n");
             client = new CosmosClient(Constants.EndpointUri, Constants.PrimaryKey);
+
             AnsiConsole.Markup($"[italic]Client started on {client.Endpoint}[/]\n");
 
             await GetInfo();
 
-            AnsiConsole.Markup("[bold white on orange3]Initializing database[/] creating if it does not exist...\n");
+            AnsiConsole.Markup("[bold black on orange3]Initializing database[/] creating if none exist...\n");
             await CreateDatabase();
         }
         catch (Exception ex)
@@ -80,7 +81,7 @@ class Program
             string containerName = AnsiConsole.Prompt(new TextPrompt<string>("Give a name for the container:"));
             if (string.IsNullOrEmpty(containerName)) return;
             string partitionKey = AnsiConsole.Prompt(new TextPrompt<string>("What is the property used for the partition key?:"));
-            AnsiConsole.Markup($"[bold white on orange3]Initializing container[/] {containerName}");
+            AnsiConsole.Markup($"[bold black on orange3]Initializing container[/] {containerName}");
             await CreateContainer(containerName, partitionKey);
         }
     }
@@ -97,13 +98,13 @@ class Program
                     ctx.Status("[bold white on green]Initializing Database...[/]");
                     if (client == null) return;
                     var response = await client.CreateDatabaseIfNotExistsAsync(Constants.DatabaseName);
-                    databaseResult = SetResultMessage(response.StatusCode, "Database");
+                    databaseResult = SetResultMessage(response.StatusCode, $"Database {Constants.DatabaseName}");
 
                     await Task.Delay(1000);
                     database = response.Database;
                 });
 
-        AnsiConsole.Markup($"[bold white on orange3]{databaseResult}[/] \n");
+        AnsiConsole.Markup($"[bold black on orange3]{databaseResult}[/] \n");
     }
 
     private static async Task CreateContainer(string? name = null, string? key = null)
@@ -126,7 +127,7 @@ class Program
                     container = response;
                 });
 
-        AnsiConsole.Markup($"[bold white on orange3]{containerResult}[/] \n");
+        AnsiConsole.Markup($"[bold black on orange3]{containerResult}[/] \n");
     }
 
     private static async Task GetInfo()

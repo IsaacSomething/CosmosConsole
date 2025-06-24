@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Program1.cs" />
+    <None Include="Program.cs" />
   </ItemGroup>
 
   <ItemGroup>
